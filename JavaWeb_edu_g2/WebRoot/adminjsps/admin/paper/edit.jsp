@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'add.jsp' starting page</title>
+    <title>My JSP 'edit.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <h1>添加</h1>
+  <h1>编辑</h1>
   <%--
   1. 显示errors --> 字段错误
   2. 显示异常错误
@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    --%>
 <p style="color: red; font-weight: 900">${msg }</p>
 <form action="<c:url value='/PaperServlet?pid=${paper.pid }'/>" method="post">
-    <input type="hidden" name="method" value="add"/>
+    <input type="hidden" name="method" value="edit"/>
     类　型：<input type="text" name="type" value="${paper.type }"/>
     <span style="color: red; font-weight: 900">${errors.type }</span>
     <br/>

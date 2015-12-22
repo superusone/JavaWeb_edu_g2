@@ -58,6 +58,21 @@ public class PaperDao {
 			throw new RuntimeException(e);
 		}
 	}
+	/**
+	 * 通过试题题目查询
+	 * 
+	 * @param q_subject
+	 *            
+	 * @return 
+	 */
+	public Paper findByQ_subject(String q_subject) {
+		try {
+			String sql = "select * from paper where q_subject=?";
+			return qr.query(sql, new BeanHandler<Paper>(Paper.class), q_subject);
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 	/**
 	 * 编辑试题

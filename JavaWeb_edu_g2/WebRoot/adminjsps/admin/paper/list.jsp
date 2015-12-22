@@ -52,8 +52,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <td>${paper.optionD }</td>
         <td>${paper.note }</td>
         <td>
-            <a href="<c:url value='/PaperServlet?method=preEdit&id=${paper.pid }'/>">编辑</a>
-            <a href="<c:url value='/PaperServlet?method=delete&id=${paper.pid }'/>">删除</a>
+            <a href="<c:url value='/PaperServlet?method=preEdit&pid=${paper.pid }'/>">编辑</a>
+            <a href="<c:url value='/PaperServlet?method=delete&pid=${paper.pid }'/>">删除</a>
         </td>
     </tr>
 </c:forEach>
