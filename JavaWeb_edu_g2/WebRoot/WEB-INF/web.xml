@@ -16,7 +16,6 @@
     <servlet-name>PaperServlet</servlet-name>
     <servlet-class>cn.zjxu.exam.paper.web.servlet.PaperServlet</servlet-class>
   </servlet>
-
   <servlet-mapping>
     <servlet-name>UserServlet</servlet-name>
     <url-pattern>/UserServlet</url-pattern>

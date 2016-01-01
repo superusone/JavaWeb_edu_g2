@@ -18,15 +18,38 @@
 	-->
 
   </head>
-  
   <body>
-  <form id="form" action="<c:url value=''/>" method="post">
+  <form id="form" action="<c:url value='/SearchPaperServlet?method=JudgeAnswer'/>" method="post">
   <ul>
-    <li>题目</li>
-    <li>题目</li>
-    <li>题目</li>
-  </ul>
-  </form>
+     <h3 align="center">列表</h3>
+<table border="1" width="70%" align="center">
+    <tr>
+        <th>题目</th>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+        <th>D</th>    
+    </tr>
+<%--
+要遍历提UserList这个集合
+ --%>
+<c:forEach items="${PaperList}" var="paper">
+    <tr>
+        <td>${paper.q_subject }</td>
+        <td>${paper.optionA }</td>
+        <td>${paper.optionB }</td>
+        <td>${paper.optionC }</td>
+        <td>${paper.optionD }</td>
+        <td>
+            <a href="<c:url value='/AdminUserServlet?method=preEdit&note=A'/>"></a>
+            
+        </td>
+    </tr>
+</c:forEach>
+</table>
+<br/>
+    
+
   <a href="javascript:document.getElementById('form').submit();">提交</a>
   </body>
 </html>
