@@ -58,17 +58,19 @@ public class PaperDao {
 			throw new RuntimeException(e);
 		}
 	}
+
 	/**
 	 * 通过试题题目查询
 	 * 
 	 * @param q_subject
-	 *            
-	 * @return 
+	 * 
+	 * @return
 	 */
 	public Paper findByQ_subject(String q_subject) {
 		try {
 			String sql = "select * from paper where q_subject=?";
-			return qr.query(sql, new BeanHandler<Paper>(Paper.class), q_subject);
+			return qr
+					.query(sql, new BeanHandler<Paper>(Paper.class), q_subject);
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -160,6 +162,7 @@ public class PaperDao {
 
 	/**
 	 * 试题备注
+	 * 
 	 * @param pid
 	 * @return 备注
 	 */
@@ -176,7 +179,8 @@ public class PaperDao {
 
 	/**
 	 * 试题答案
-	 * @param pid 
+	 * 
+	 * @param pid
 	 * @return Answer
 	 */
 	public String getAnswer(String pid) {
@@ -189,6 +193,5 @@ public class PaperDao {
 			throw new RuntimeException(e);
 		}
 	}
-
 
 }
