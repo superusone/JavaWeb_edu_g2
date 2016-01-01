@@ -16,6 +16,34 @@
     <servlet-name>PaperServlet</servlet-name>
     <servlet-class>cn.zjxu.exam.paper.web.servlet.PaperServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>JudgeAnswerServlet</servlet-name>
+    <servlet-class>cn.zjxu.exam.paper.service.JudgeAnswerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>JudgePaperService</servlet-name>
+    <servlet-class>cn.zjxu.exam.paper.service.JudgePaperService</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SearchPaperServlet</servlet-name>
+    <servlet-class>cn.zjxu.exam.paper.web.servlet.SearchPaperServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SPServlet</servlet-name>
+    <servlet-class>cn.zjxu.exam.sp.web.servlet.SPServlet</servlet-class>
+  </servlet>
+
+
+
+
   <servlet-mapping>
     <servlet-name>UserServlet</servlet-name>
     <url-pattern>/UserServlet</url-pattern>
@@ -32,4 +60,13 @@
     <servlet-name>PaperServlet</servlet-name>
     <url-pattern>/PaperServlet</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SearchPaperServlet</servlet-name>
+    <url-pattern>/SearchPaperServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SPServlet</servlet-name>
+    <url-pattern>/SPServlet</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
