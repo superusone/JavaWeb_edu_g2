@@ -11,6 +11,7 @@ import cn.itcast.jdbc.TxQueryRunner;
 import cn.zjxu.exam.paper.domain.Paper;
 
 public class PaperDao {
+	
 	private QueryRunner qr = new TxQueryRunner();
 
 	/**
