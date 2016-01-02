@@ -8,10 +8,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import cn.itcast.servlet.BaseServlet;
 import cn.zjxu.exam.sp.service.SPService;
-
+/**
+ * 显示成绩
+ * @author Administrator
+ *
+ */
 public class SPServlet extends BaseServlet {
 	private SPService sps = new SPService();
-
+/**
+ * 若没有成绩，显示“该用户没有成绩记录”
+ * @param request
+ * @param response
+ * @return
+ * @throws ServletException
+ * @throws IOException
+ */
 	public String ShowGrade(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");

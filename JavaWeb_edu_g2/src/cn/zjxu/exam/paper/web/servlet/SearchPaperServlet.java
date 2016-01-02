@@ -6,10 +6,18 @@ import javax.servlet.http.HttpServletResponse;
 import cn.itcast.commons.CommonUtils;
 import cn.zjxu.exam.paper.domain.Form;
 import cn.zjxu.exam.paper.service.JudgeAnswerService;
-
+/**
+ *判断答案是否正确
+ * @author Administrator
+ *
+ */
 public class SearchPaperServlet extends PaperServlet {
 	private JudgeAnswerService jas = new JudgeAnswerService();
-
+/**
+ * 调用Judge方法判断答案是否正确
+ * @param request
+ * @param response
+ */
 	public void JudgeAnswer(HttpServletRequest request,
 			HttpServletResponse response) {
 		Form form = CommonUtils.toBean(request.getParameterMap(), Form.class);
