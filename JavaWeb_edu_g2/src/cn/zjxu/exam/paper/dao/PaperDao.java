@@ -11,7 +11,7 @@ import cn.itcast.jdbc.TxQueryRunner;
 import cn.zjxu.exam.paper.domain.Paper;
 
 public class PaperDao {
-	
+
 	private QueryRunner qr = new TxQueryRunner();
 
 	/**
@@ -37,7 +37,7 @@ public class PaperDao {
 	 */
 	public List<Paper> findByNote(String note) {
 		try {
-			String sql = "select * from paper where note=" + note;
+			String sql = "select * from paper where note=" + "'" + note + "'";
 			return qr.query(sql, new BeanListHandler<Paper>(Paper.class));
 		} catch (SQLException e) {
 			throw new RuntimeException(e);

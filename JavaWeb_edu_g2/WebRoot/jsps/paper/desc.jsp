@@ -14,7 +14,9 @@
 	<meta http-equiv="description" content="This is my page">
 	<meta http-equiv="content-type" content="text/html;charset=utf-8">
 	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script type="text/javascript" src="<c:url value='/menu/mymenu.js'/>"></script>
+	<link rel="stylesheet" href="<c:url value='/menu/mymenu.css'/>" type="text/css" media="all">
+	
 	-->
 
   </head>
@@ -22,28 +24,18 @@
   <form id="form" action="<c:url value='/SearchPaperServlet?method=JudgeAnswer'/>" method="post">
   <ul>
      <h3 align="center">列表</h3>
-<table border="1" width="70%" align="center">
-    <tr>
-        <th>题目</th>
-        <th>A</th>
-        <th>B</th>
-        <th>C</th>
-        <th>D</th>    
-    </tr>
-<%--
-要遍历提UserList这个集合
- --%>
-<c:forEach items="${PaperList}" var="paper">
+<table width="70%" align="center">
+<h1>题目</h1>
+<h2>单选</h2>
+<c:forEach items="${singleList}" var="paper">
+
     <tr>
         <td>${paper.q_subject }</td>
-        <td>${paper.optionA }</td>
-        <td>${paper.optionB }</td>
-        <td>${paper.optionC }</td>
-        <td>${paper.optionD }</td>
-        <td>
-            <a href="<c:url value='/AdminUserServlet?method=preEdit&note=A'/>"></a>
-            
-        </td>
+        <td><input type="radio"name="${paper.pid }" value="A"/>${paper.optionA }</td>
+        <td><input type="radio"name="${paper.pid }" value="B"/>${paper.optionB }</td>
+        <td><input type="radio"name="${paper.pid }" value="C"/>${paper.optionC }</td>
+        <td><input type="radio"name="${paper.pid }" value="D"/>${paper.optionD }</td>
+		</br>
     </tr>
 </c:forEach>
 </table>
