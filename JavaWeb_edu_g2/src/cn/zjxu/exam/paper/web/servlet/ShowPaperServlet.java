@@ -32,7 +32,7 @@ public class ShowPaperServlet extends PaperServlet {
 		List<Paper> singleList = new ArrayList<Paper>();
 		List<Paper> multiselectList = new ArrayList<Paper>();
 		List<Paper> judgeList = new ArrayList<Paper>();
-		for (Paper p : paperTypedList) {
+		for (Paper p : paperTypedList) {//根据题目类型将题目添加到不同的List当中
 			if (p.getType() == 1) {
 				// 单选
 				singleList.add(p);
