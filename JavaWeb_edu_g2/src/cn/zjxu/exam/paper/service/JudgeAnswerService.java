@@ -35,6 +35,7 @@ public class JudgeAnswerService extends PaperServlet {
 			sp.setGrade(grade);
 			sp.setId(id);
 			sp.setPid(pid);
+			System.out.println("JudgeAnswer::"+sp.toString());
 			spDao.add(sp);
 
 		} else {
@@ -42,6 +43,7 @@ public class JudgeAnswerService extends PaperServlet {
 			sp.setGrade(grade);
 			sp.setId(id);
 			sp.setPid(pid);
+			System.out.println("JudgeAnswer::"+sp.toString());
 			spDao.add(sp);
 		}
 	}

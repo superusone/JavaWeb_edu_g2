@@ -30,10 +30,12 @@ public class SPServlet extends BaseServlet {
 		if (id != null) {
 			String s = sps.ShowGrade(id);
 			if(! s.equals("该用户没有成绩记录")){
-				
+				System.out.println("ShowGrade::"+s);
 				String[] grade = s.split("@");
 				request.setAttribute("A", grade[0]);
+				System.out.println("A::"+ grade[0]);
 				request.setAttribute("B", grade[1]);
+				System.out.println("B::"+ grade[1]);
 			}else{
 				request.setAttribute("msg", "该用户没有成绩记录");
 			}

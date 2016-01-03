@@ -23,18 +23,68 @@
 <link rel="stylesheet" href="<c:url value='/menu/question.css'/>"
 	type="text/css" media="all">
 
+<script type="text/javascript">
+	/**
+	 *在此可以校验必选项是否选择即表单数据校验
+	 **/
+	function check() {
+		//校验
+
+		//提交
+		var url = '';
+		for (var i = 1; i <= 6; i++) {
+			var pid = 'pid' + i;
+			url += '&' + pid + '=' + submit(pid);
+		}
+
+		var u = "<c:url value='/SearchPaperServlet?method=JudgeAnswer&id=${sessionScope.session_user.id }'/>" + url ;
+		document.getElementById('form').action=u;
+		document.getElementById('form').submit();
+	}
+
+	/**
+	 *封装数据提交
+	 **/
+	function submit(n) {
+		var str = '';
+
+		if (n == 'pid4') {
+			var muls = document.getElementsByName(n);
+			for(var i = 0; i < muls.length; i++){
+				if(muls[i].checked){
+					str += muls[i].value + '@@';
+				}
+			}
+		} else {
+
+			var singles = document.getElementsByName(n);
+			for (var i = 0; i < singles.length; i++) {
+				if (singles[i].checked) {
+					str += singles[i].value;
+
+				}
+			}
+		}
+		return str;
+	}
+</script>
+
 </head>
 
 <body id="wrapper" class="sticky">
 
 	<div class="con-border">
+	<form id="form" action="" method="post">
+ 
 		<div class="content">
-		<p><h1>单选</h1></p>
-			<c:forEach items="${singleList}" var="paper">
-				<div class="question" id="">
+			<p>
+			<h1>单选</h1>
+			</p>
+			<c:forEach items="${singleList}" var="paper" varStatus="vs">
+				<div class="question" id="singleList">
 					<div class="question-tit">
 						<div class="question-titleft">
-							<div class="text-q-num">Q1.</div>
+							<div class="text-q-num">Q ${vs.index + 1 }.</div>
 							<div class="text-q-con">
 								<p>${paper.q_subject }</p>
 							</div>
@@ -45,7 +95,8 @@
 						<ul>
 							<li class=""><div class="q-choice-piccheck">
 									<div class="q_choice_in fl">
-										<input type="radio" id="" name="${paper.pid }" value="" >
+										<input type="radio" id="" name="pid${vs.index + 1 }"
+											value="A@${paper.pid }">
 									</div>
 									<div class="q-choice-picchecktext fl">
 										<p class="lineheight16">
@@ -55,7 +106,8 @@
 								</div></li>
 							<li class=""><div class="q-choice-piccheck">
 									<div class="q_choice_in fl">
-										<input type="radio" id="" name="${paper.pid }" value="">
+										<input type="radio" id="" name="pid${vs.index + 1 }"
+											value="B@${paper.pid }">
 									</div>
 									<div class="q-choice-picchecktext fl">
 										<p class="lineheight16">
@@ -65,7 +117,8 @@
 								</div></li>
 							<li class=""><div class="q-choice-piccheck">
 									<div class="q_choice_in fl">
-										<input type="radio" id="" name="${paper.pid }" value="">
+										<input type="radio" id="" name="pid${vs.index + 1 }"
+											value="C@${paper.pid }">
 									</div>
 									<div class="q-choice-picchecktext fl">
 										<p class="lineheight16">
@@ -75,7 +128,8 @@
 								</div></li>
 							<li class=""><div class="q-choice-piccheck">
 									<div class="q_choice_in fl">
-										<input type="radio" id="" name="${paper.pid }" value="">
+										<input type="radio" id="" name="pid${vs.index + 1 }"
+											value="D@${paper.pid }">
 									</div>
 									<div class="q-choice-picchecktext fl">
 										<p class="lineheight16">
@@ -88,7 +142,9 @@
 					</div>
 				</div>
 			</c:forEach>
-			<p><h1>多选</h1></p>
+			<p>
+			<h1>多选</h1>
+			</p>
 			<c:forEach items="${multiselectList}" var="paper">
 				<div class="question" id="">
 					<div class="question-tit">
@@ -104,7 +160,8 @@
 						<ul>
 							<li class=""><div class="q-choice-piccheck">
 									<div class="q_choice_in fl">
-										<input type="checkbox" id="" name="multiselectList0" value="" >
+										<input type="checkbox" id="mul" name="pid4"
+											value="A@${paper.pid }">
 									</div>
 									<div class="q-choice-picchecktext fl">
 										<p class="lineheight16">
@@ -114,7 +171,8 @@
 								</div></li>
 							<li class=""><div class="q-choice-piccheck">
 									<div class="q_choice_in fl">
-										<input type="checkbox" id="" name="multiselectList1" value="">
+										<input type="checkbox" id="mul" name="pid4"
+											value="B@${paper.pid }">
 									</div>
 									<div class="q-choice-picchecktext fl">
 										<p class="lineheight16">
@@ -124,7 +182,8 @@
 								</div></li>
 							<li class=""><div class="q-choice-piccheck">
 									<div class="q_choice_in fl">
-										<input type="checkbox" id="" name="multiselectList2" value="">
+										<input type="checkbox" id="mul" name="pid4"
+											value="C@${paper.pid }">
 									</div>
 									<div class="q-choice-picchecktext fl">
 										<p class="lineheight16">
@@ -134,7 +193,8 @@
 								</div></li>
 							<li class=""><div class="q-choice-piccheck">
 									<div class="q_choice_in fl">
-										<input type="checkbox" id="" name="multiselectList3" value="">
+										<input type="checkbox" id="mul" name="pid4"
+											value="D@${paper.pid }">
 									</div>
 									<div class="q-choice-picchecktext fl">
 										<p class="lineheight16">
@@ -147,12 +207,14 @@
 					</div>
 				</div>
 			</c:forEach>
-			<p><h1>判断</h1></p>
-			<c:forEach items="${judgeList}" var="paper">
+			<p>
+			<h1>判断</h1>
+			</p>
+			<c:forEach items="${judgeList}" var="paper" varStatus="vs">
 				<div class="question" id="">
 					<div class="question-tit">
 						<div class="question-titleft">
-							<div class="text-q-num">Q1.</div>
+							<div class="text-q-num">Q ${vs.index + 1 }.</div>
 							<div class="text-q-con">
 								<p>${paper.q_subject }</p>
 							</div>
@@ -163,7 +225,8 @@
 						<ul>
 							<li class=""><div class="q-choice-piccheck">
 									<div class="q_choice_in fl">
-										<input type="radio" id="" name="${paper.pid }" value="" >
+										<input type="radio" id="" name="pid${vs.index + 5 }"
+											value="true@${paper.pid }">
 									</div>
 									<div class="q-choice-picchecktext fl">
 										<p class="lineheight16">
@@ -173,7 +236,8 @@
 								</div></li>
 							<li class=""><div class="q-choice-piccheck">
 									<div class="q_choice_in fl">
-										<input type="radio" id="" name="${paper.pid }" value="">
+										<input type="radio" id="" name="pid${vs.index + 5 }"
+											value="false@${paper.pid }">
 									</div>
 									<div class="q-choice-picchecktext fl">
 										<p class="lineheight16">
@@ -187,9 +251,11 @@
 			</c:forEach>
 		</div>
 		<div class="next">
-			<span class="submitbnt"><a href="javascript:void(0)"
+			<span class="submitbnt"><a href="javascript:check()"
 				title="提交">提交</a></span>
 		</div>
+ </form>
+ 
 	</div>
 </body>
 </html>
