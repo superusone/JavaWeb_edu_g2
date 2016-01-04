@@ -71,9 +71,9 @@ public class SearchPaperServlet extends PaperServlet {
 		String[] pid5s = pid5.split("@");
 		form.setPid5(pid5s[1]);
 		if(pid5s[0].equals("true")){
-			form.setPid5_useranswer("对");
+			form.setPid5_useranswer("正确");
 		}else{
-			form.setPid5_useranswer("错");
+			form.setPid5_useranswer("错误");
 			
 		}
 		
@@ -81,9 +81,9 @@ public class SearchPaperServlet extends PaperServlet {
 		String[] pid6s = pid6.split("@");
 		form.setPid6(pid6s[1]);
 		if(pid6s[0].equals("true")){
-			form.setPid6_useranswer("对");
+			form.setPid6_useranswer("正确");
 		}else{
-			form.setPid6_useranswer("错");
+			form.setPid6_useranswer("错误");
 			
 		}
 		

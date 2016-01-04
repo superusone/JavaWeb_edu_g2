@@ -230,7 +230,7 @@
 									</div>
 									<div class="q-choice-picchecktext fl">
 										<p class="lineheight16">
-											<em class="mr5">对</em>&nbsp;
+											<em class="mr5">正确</em>&nbsp;
 										</p>
 									</div>
 								</div></li>
@@ -241,7 +241,7 @@
 									</div>
 									<div class="q-choice-picchecktext fl">
 										<p class="lineheight16">
-											<em class="mr5">错</em>&nbsp;
+											<em class="mr5">错误</em>&nbsp;
 										</p>
 									</div>
 								</div></li>
@@ -249,6 +249,7 @@
 					</div>
 				</div>
 			</c:forEach>
+			
 		</div>
 		<div class="next">
 			<span class="submitbnt"><a href="javascript:check()"
