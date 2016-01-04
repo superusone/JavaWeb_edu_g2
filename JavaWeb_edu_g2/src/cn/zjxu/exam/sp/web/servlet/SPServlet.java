@@ -33,8 +33,10 @@ public class SPServlet extends BaseServlet {
 				System.out.println("ShowGrade::"+s);
 				String[] grade = s.split("@");
 				request.setAttribute("A", grade[0]);
+				request.setAttribute("a", "A卷成绩：");
 				System.out.println("A::"+ grade[0]);
 				request.setAttribute("B", grade[1]);
+				request.setAttribute("b", "B卷成绩：");
 				System.out.println("B::"+ grade[1]);
 			}else{
 				request.setAttribute("msg", "该用户没有成绩记录");
