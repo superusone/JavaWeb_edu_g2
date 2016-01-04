@@ -80,7 +80,7 @@ public class SearchPaperServlet extends PaperServlet {
 		String pid6 =request.getParameter("pid6");
 		String[] pid6s = pid6.split("@");
 		form.setPid6(pid6s[1]);
-		if(pid5s[0].equals("true")){
+		if(pid6s[0].equals("true")){
 			form.setPid6_useranswer("对");
 		}else{
 			form.setPid6_useranswer("错");
