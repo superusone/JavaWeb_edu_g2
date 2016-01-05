@@ -1,54 +1,63 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-    <title>left</title>
-    <base target="body"/>
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<meta http-equiv="content-type" content="text/html;charset=utf-8">
-	<!--
+<head>
+<title>left</title>
+<base target="body" />
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	<style type="text/css">
-		*{
-			font-size:10pt;
-			text-align: center;
-		}
-		div {
-			background: #87CEFA; 
-			margin: 3px; 
-			padding: 3px;
-		}
-		a {
-			text-decoration: none;
-		}
-	</style>
-  </head>
-  
-  <body>
-<div>
-	<a href="<c:url value='/jsps/paper/list.jsp'/>">分类</a>
-</div>
+<style type="text/css">
+* {
+	font-size: 10pt;
+	text-align: center;
+}
 
+div {
+	background: #87CEFA;
+	margin: 3px;
+	padding: 3px;
+}
 
-<div>
-	<a href="<c:url value='/jsps/paper/list.jsp'/>">JavaSE分类</a>
-</div>
-<div>
-	<a href="<c:url value='/jsps/paper/list.jsp'/>">JavaEE分类</a>
-</div>
-<div>
-	<a href="<c:url value='/jsps/paper/list.jsp'/>">JavaME分类</a>
-</div>
+a {
+	text-decoration: none;
+}
+</style>
+</head>
 
+<body>
+	<c:choose>
+		<c:when test="${2 eq sessionScope.session_user.mark }">
+			<div>
+				<a href="<c:url value='/jsps/paper/list.jsp'/>" target="body">考试</a>
+			</div>
+			<div>
+				<a
+					href="<c:url value='/SPServlet?method=ShowGrade&id=${sessionScope.session_user.id }'/>"
+					target="body">查看成绩</a>
+			</div>
+			<div>
+				<a href="<c:url value='/UserServlet?method=quit'/>" target="_parent">退出</a>
+			</div>
+		</c:when>
+		<c:when test="${1 eq sessionScope.session_user.mark }">
+			<div>
+				<a href="<c:url value='/jsps/cart/list.jsp'/>" target="body">批阅</a>
+			</div>
+			<div>
+				<a href="<c:url value='/UserServlet?method=quit'/>" target="_parent">退出</a>
+			</div>
+		</c:when>
 
-
-  </body>
+	</c:choose>
+</body>
 </html>

@@ -39,15 +39,10 @@
 			<a href="<c:url value='/jsps/user/regist.jsp'/>" target="_parent">注册</a>		
 		</c:when>
 		<c:when test="${2 eq sessionScope.session_user.mark }">
-			您好：${sessionScope.session_user.name }&nbsp;&nbsp;|&nbsp;&nbsp;
-			<a href="<c:url value='/jsps/paper/list.jsp'/>" target="body">考试</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-			<a href="<c:url value='/SPServlet?method=ShowGrade&id=${sessionScope.session_user.id }'/>" target="body">查看成绩</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-			<a href="<c:url value='/UserServlet?method=quit'/>" target="_parent">退出</a>		
+			您好：${sessionScope.session_user.name }&nbsp;&nbsp;|&nbsp;&nbsp;	
 		</c:when>
 		<c:when test="${1 eq sessionScope.session_user.mark }">
-			您好：${sessionScope.session_user.name }&nbsp;&nbsp;|&nbsp;&nbsp;
-			<a href="<c:url value='/jsps/cart/list.jsp'/>" target="body">批阅</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-			<a href="<c:url value='/UserServlet?method=quit'/>" target="_parent">退出</a>				
+			您好：${sessionScope.session_user.name }&nbsp;&nbsp;|&nbsp;&nbsp;		
 		</c:when>
 
 	</c:choose>
